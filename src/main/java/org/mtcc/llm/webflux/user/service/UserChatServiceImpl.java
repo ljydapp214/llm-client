@@ -31,7 +31,7 @@ public class UserChatServiceImpl implements UserChatService {
 		 * mono 의 흐름으로 통제하는 형태의 구현
 		 */
 		//		return Mono.defer(() -> {
-		// 			LlmChatRequest request = LlmChatRequest.of(command, "적절히 응답해주라~");
+		// 			LlmChatRequest request = LlmChatRequest.from(command, "적절히 응답해주라~");
 		// 			Mono<LlmChatResponse> llmChatResponse = llmServiceMap.get(command.llmModel().getLlmType())
 		// 				.getChatCompletion(request);
 		//

@@ -12,4 +12,7 @@ public record GptChatRequest(
 	GptResponseFormat response_format
 ) implements Serializable {
 
+	public GptChatRequest convertToStream() {
+		return new GptChatRequest(this.messages, this.model, true, this.response_format);
+	}
 }

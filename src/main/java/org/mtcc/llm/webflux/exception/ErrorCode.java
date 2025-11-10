@@ -6,7 +6,7 @@ import lombok.Getter;
 public enum ErrorCode {
 	GEMINI_RESPONSE_ERROR(1),
 	GPT_RESPONSE_ERROR(2),
-	;
+	JSON_PARSE_ERROR(3);
 
 	private final int code;
 

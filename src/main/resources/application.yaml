@@ -9,4 +9,5 @@ logging:
 llm:
   gpt:
     api-key:
-
+  gemini:
+    key:

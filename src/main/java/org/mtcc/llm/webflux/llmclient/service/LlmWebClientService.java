@@ -25,7 +25,7 @@ public interface LlmWebClientService {
 			.onErrorResume(exception -> {
 				if (exception instanceof BaseException ex) {
 					return Mono.just(
-						new LlmChatResponse(new CommonError(ex.getErrorCode().toString(), ex.getMessage())));
+						LlmChatResponse.of(new CommonError(ex.getErrorCode().toString(), ex.getMessage()), ex));
 				}
 				return Mono.just(new LlmChatResponse(new CommonError("500", exception.getMessage())));
 			});

@@ -15,7 +15,7 @@ public record GeminiChatRequest(
 			return new GeminiChatRequest(
 				List.of(
 					new GeminiContent(List.of(new GeminiPart(llmChatRequest.userRequest())), GeminiMessageRole.USER)),
-				new GeminiContent(List.of(new GeminiPart(llmChatRequest.userRequest())), GeminiMessageRole.MODEL),
+				new GeminiContent(List.of(new GeminiPart(llmChatRequest.systemPrompt())), GeminiMessageRole.MODEL),
 				GeminiGenerationConfig.asDefault()
 			);
 		}
@@ -23,7 +23,7 @@ public record GeminiChatRequest(
 		return new GeminiChatRequest(
 			List.of(
 				new GeminiContent(List.of(new GeminiPart(llmChatRequest.userRequest())), GeminiMessageRole.USER)),
-			new GeminiContent(List.of(new GeminiPart(llmChatRequest.userRequest())), GeminiMessageRole.MODEL),
+			new GeminiContent(List.of(new GeminiPart(llmChatRequest.systemPrompt())), GeminiMessageRole.MODEL),
 			null
 		);
 	}

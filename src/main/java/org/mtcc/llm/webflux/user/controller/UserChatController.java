@@ -2,6 +2,8 @@ package org.mtcc.llm.webflux.user.controller;
 
 import org.mtcc.llm.webflux.user.controller.dto.UserChatRequest;
 import org.mtcc.llm.webflux.user.controller.dto.UserChatResponse;
+import org.mtcc.llm.webflux.user.controller.dto.UserCotChatRequest;
+import org.mtcc.llm.webflux.user.controller.dto.UserCotChatResponse;
 import org.mtcc.llm.webflux.user.service.UserChatService;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -31,5 +33,12 @@ public class UserChatController {
 		@RequestBody UserChatRequest request
 	) {
 		return userChatService.getOneShotChatStream(request.toCommand());
+	}
+
+	@PostMapping(value = "/cot", produces = MediaType.TEXT_EVENT_STREAM_VALUE)
+	public Flux<UserCotChatResponse> cotChat(
+		@RequestBody UserCotChatRequest request
+	) {
+		return userChatService.getCotChat(request.toCommand());
 	}
 }
